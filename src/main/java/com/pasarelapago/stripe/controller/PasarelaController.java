@@ -19,10 +19,10 @@ public class PasarelaController {
     PagoService pagoService;
 
     @PostMapping
-    public ResponseEntity<String> pagarReserva(@RequestParam String monto){
+    public ResponseEntity<String> pagarReserva(@RequestParam String monto, @RequestParam String email){
 
         System.out.println("Pago de Reserva en PasarelaController");
-        final String secretClientKey = pagoService.pagarReserva(monto);
+        final String secretClientKey = pagoService.pagarReserva(monto, email);
 
         if(EMPTY.equals(secretClientKey)){
             return new ResponseEntity<String>(EMPTY, HttpStatus.INTERNAL_SERVER_ERROR);
