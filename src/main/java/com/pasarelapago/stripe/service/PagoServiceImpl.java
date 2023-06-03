@@ -11,11 +11,11 @@ import static org.apache.logging.log4j.util.Strings.EMPTY;
 public class PagoServiceImpl implements PagoService {
 
     @Override
-    public String pagarReserva() {
+    public String pagarReserva(String monto) {
 
-        PaymentIntentCreateParams paymentIntentCreateParams = PaymentIntentCreateParams.builder()
+        final PaymentIntentCreateParams paymentIntentCreateParams = PaymentIntentCreateParams.builder()
                 .setCurrency("EUR")
-                .setAmount(15 * 100L)
+                .setAmount(Long.valueOf(monto))
                 .build();
 
         PaymentIntent paymentIntent = null;

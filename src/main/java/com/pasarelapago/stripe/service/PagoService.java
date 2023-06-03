@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface PagoService {
 
-    public String pagarReserva();
+    public String pagarReserva(String monto);
 }

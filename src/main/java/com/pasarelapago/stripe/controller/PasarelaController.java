@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import static org.apache.logging.log4j.util.Strings.EMPTY;
 
@@ -18,10 +19,10 @@ public class PasarelaController {
     PagoService pagoService;
 
     @PostMapping
-    public ResponseEntity<String> pagarReserva(){
-        
+    public ResponseEntity<String> pagarReserva(@RequestParam String monto){
+
         System.out.println("Pago de Reserva en PasarelaController");
-        final String secretClientKey = pagoService.pagarReserva();
+        final String secretClientKey = pagoService.pagarReserva(monto);
 
         if(EMPTY.equals(secretClientKey)){
             return new ResponseEntity<String>(EMPTY, HttpStatus.INTERNAL_SERVER_ERROR);
