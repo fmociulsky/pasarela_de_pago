@@ -27,7 +27,6 @@ public class PasarelaController {
         }
 
         return new ResponseEntity<String>(secretClientKey, HttpStatus.OK);
-
     }
 
 }
